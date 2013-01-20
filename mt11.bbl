@@ -1,0 +1,50 @@
+\def\bibRCS{$Id: theory.bib,v 1.386 2001/10/08 23:03:17 beame Exp $}
+  \makeatletter \@ifundefined{ccisdefined}{ \newcommand{\cc}[1]{\mbox{\it
+  #1\/}} \newcommand{\ccisdefined}{} }{} \@ifundefined{journalfont}{
+  \newcommand{\journalfont}{\it } }{} \makeatother
+\begin{thebibliography}{}
+
+\bibitem[Alekhnovich {\rm et~al.}, 2002]{alek:sepres}
+Alekhnovich, M., Johannsen, J., Pitassi, T.  \& Urquhart, A. (2002{\rm{}}).
+\newblock In {\rm In Proceedings of the Thirty-Fourth Annual ACM Symposium on
+  Theory of Computing} pp. 448--456, ACM Press.
+
+\bibitem[Ben-Sasson, 2002]{bs:wsstrade}
+Ben-Sasson, E. (2002{\rm{}}).
+\newblock In {\rm Proceedings of the thiry-fourth annual ACM symposium on
+  Theory of computing} STOC '02 pp. 457--464, ACM, New York, NY, USA.
+
+\bibitem[Cook {\rm et~al.}, 2012]{c:pebjournal}
+Cook, S.~A., McKenzie, P., Wehr, D., Braverman, M.  \& Santhanam, R.
+  (2012{\rm{}}).
+\newblock {\rm ACM Trans. on Computing Theory (ToCT) } {\rm }.
+\newblock Preliminary version available at
+  \verb+http://arxiv.org/abs/1005.2642+.
+
+\bibitem[Cook \& Sethi, 1976]{cs:pfromnl}
+Cook, S.~A. \& Sethi, R. (1976{\rm{}}).
+\newblock {\rm J. Comput. Syst. Sci.} {\rm 13}, 25--37.
+
+\bibitem[Klawe, 1985]{k:bwpyr}
+Klawe, M.~M. (1985{\rm{}}).
+\newblock {\rm J. ACM } {\rm 32}, 218--228.
+
+\bibitem[Nordstrom, 2005]{n:narrowpf}
+Nordstrom, J. (2005{\rm{}}).
+\newblock Technical report Revision 02, Electronic Colloquium on Computational
+  Complexity (ECCC.
+
+\bibitem[Nordstr{\"o}m, 2010]{nord:survey2}
+Nordstr{\"o}m, J. (2010{\rm{}}).
+
+\bibitem[Paterson \& Hewitt, 1970]{ph:comsc}
+Paterson, M.~S. \& Hewitt, C.~E. (1970{\rm{}}).
+\newblock chapter Comparative schematology, pp. 119--127. ACM New York, NY,
+  USA.
+
+\bibitem[Pippenger, 1982]{ppgr:survey}
+Pippenger, N. (1982{\rm{}}).
+\newblock In {\rm ICALP}, (Nielsen, M. \& Schmidt, E.~M., eds), vol. 140, of
+  {\rm Lecture Notes in Computer Science} pp. 407--417, Springer.
+
+\end{thebibliography}

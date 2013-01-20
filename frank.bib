@@ -1,0 +1,601 @@
+@misc{RCS,title="$Header: /u1/beame/latex/RCS/theory.bib,v 1.386 2001/10/08 23:03:17
+beame Exp $",author="RCS Version"}
+
+
+    Theory.bib                       LastEditDate="Fri Jun  1 14:38:05 2001"
+
+    entry conventions
+        * database is sorted by [von] Surname,First-initials,Jr, year.
+          (see exception below under "prelim".)
+        * tags (\cite keys) are all lower case.  Older tags are usually:
+            (a) if one author, then 1st 3 letters of surname + last 2 of year
+            (b) multi-author, then 1st letter of each surname+ last 2 of year
+            (c) if above collides, add ":something"
+          When using "year" as part of tag, if say a tr or conference
+          version is superceeded by a journal version, leave the old
+          entry, but change its tag to tag-old, & put the original tag on
+          the journal entry, so old papers get latest ref automatically.
+          Yes, this makes the year portion of tags somewhat misleading.
+          Partly in response, newer tags are usually:
+            (d) author(or multi-authors initials):keyword.
+          Again, add -old or something as they are superceeded.
+          See "prelim=" below for annotating supercession.
+        * use strings for months, common journal titles, conference
+          names, etc., so they can be consistently abbreviated.
+        * for "city, state", use two-letter US postal abbrev for state
+        * prefer at-type{..} rather than at-type(...)
+        * prefer entries to have one field per line, keyword indented 2
+          spaces, comma (or final close brace) at end of line.  (See
+          exception under Proceedings.
+        * prefer to use authors full names where known; bib style can
+          abbreviate if desired.
+        * prefer names to be entered in "[von] Last, [Jr.,] First" order.
+        * when using initials, leave space, no "~", as in "W. L. Ruzzo".
+        * prefer "-" in "pages=99-999", not "--".  (Bibtex converts to
+          "--".)  Page ranges in other contexts, e.g. in "note=", should
+          be "--".
+        * crossref is used to define aliases for certain cite keys; this
+          really doesn't work very well, but will suffice to give you a
+          pointer to the right key.  This is useful, e.g. for keeping
+          backward compatibility to keys in old files.  C.f. proceedings.
+        * the "prelim={taga}" keyword is IGNORED by bibtex.  Use it as an
+          annotation to point to (the tag, "taga", of) a preliminary
+          version of a paper "tagb".  Syntax is just like crossref.  This
+          is especially important when title, authors, etc.  change.  Also,
+          Ruzzo's sorting hack will sort such an entry with the year from
+          taga, rather than tagb, so the pair will tend to stay together.
+          If desired, we could hack up a bib style file that displayed
+          these annotations.
+        * Notes on citing papers in conference proceedings:
+            - most proceedings (focs,stoc,...) are cited via inproceedings,
+          with full data repeated at each entry.  For convenience &
+          consistency, use strings liberally, and put the fields that are
+          repeated in each entry for that conference (year, booktitle,
+          etc.)  on one line so it's easy to copy when making a new entry.
+            - proceedings that are rarely cited, and/or have more complex
+          bibliographic data, such as icalp, mfcs, fct & others in the
+          Springer LNCS series are cited via the "crossref=" facility: put
+          the common info into a "proceedings" entry at the end of the
+          file, and for each "inproceedings" entry just give title,
+          author, pages, and crossref.
+        * omit major publishers' addresses:
+                Academic Press              London
+                Academic Press              New York
+                Addison-Wesley              Menlo Park, CA
+                Addison-Wesley              Reading, MA
+                Alfred A. Knopf             New York
+                American Elsevier           New York
+                Cambridge University Press  Cambridge, UK
+                Computer Science Press      Rockville, MD
+                John Wiley \& Sons          New York
+                Little, Brown and Company   Boston
+                McGraw-Hill                 New York
+                Morgan Kaufmann             San Mateo, CA
+                North-Holland               Amsterdam
+                Oxford University Press     London
+                Prentice-Hall               Englewood Cliffs, N.J.
+                Princeton University Press  Princeton, NJ
+                SIAM                        Philadelphia, PA
+                Scott, Foresman and Company Glenview, IL
+                Springer-Verlag             Berlin
+                Van Nostrand                Princeton, NJ
+                W. H. Freeman and Company   San Francisco
+        * Complexity classes in titles (P, NP, ...): for consistent
+          formatting, use the \cc{} (defined directly below) command
+          around them;  e.g. cf \cite{bkrgllslv75}.
+          [Caution: "... {\cc{P}}..." will be treated by bibtex as an
+          "accented" character, meaning the P will be lower-cased in most
+          titles; either put no "{}" around "\cc", or double them
+          "{{\cc{..}}}".]
+          [\-at-ifundefined avoids redefinition error with chapterbib.]
+        * Use "\journalfont" instead of explicit \it etc., in e.g.
+              note="to appear, {\journalfont Journal of Foo}"
+          since some journal styles don't use \it.  (E.g. siam
+            uses \rm.)  Command below sets \it as default, but you
+          can override it by defining e.g.:
+              \newcommand{\journalfont}{\rm} 
+          in front of \bibliography.
+
+@preamble{"\def\bibRCS{$Id: theory.bib,v 1.386 2001/10/08 23:03:17 beame Exp $}"}
+@preamble{"
+  \makeatletter                                
+  \@ifundefined{ccisdefined}{                  
+      \newcommand{\cc}[1]{\mbox{\it #1\/}}     
+      \newcommand{\ccisdefined}{}              
+     }{}                                       
+  \@ifundefined{journalfont}{                 
+      \newcommand{\journalfont}{\it }          
+     }{}                                       
+  \makeatother                                 
+"}
+               ---BEGIN-STRINGS---BEGIN-STRINGS---BEGIN-STRINGS---
+
+    DON'T CHANGE PRECEEDING LINE.  Preceeding line is a sentinel to Ruzzo's
+    bib hacks to excise standard string definitions in case abbreviated
+    ones are desired.
+
+Standard string definitions from plain.bst:
+
+@string{acmcs="ACM Computing Surveys"}
+@string{acta="Acta Informatica"}
+@string{cacm="Communications of the ACM"}
+@string{ibmjrd="IBM Journal of Research and Development"}
+@string{ibmsj="IBM Systems Journal"}
+@string{ieeese="IEEE Transactions on Software Engineering"}
+@string{ieeetc="IEEE Transactions on Computers"}
+@string{ieeetcad="IEEE Transactions on Computer-Aided Design of Integrated Circuits"}
+@string{ipl="Information Processing Letters"}
+@string{jacm="Journal of the ACM"}
+@string{jcss="Journal of Computer and System Sciences"}
+@string{scp="Science of Computer Programming"}
+@string{sicomp="SIAM Journal on Computing"}
+@string{tocs="ACM Transactions on Computer Systems"}
+@string{tods="ACM Transactions on Database Systems"}
+@string{tog="ACM Transactions on Graphics"}
+@string{toms="ACM Transactions on Mathematical Software"}
+@string{toois="ACM Transactions on Office Information Systems"}
+@string{toplas="ACM Transactions on Programming Languages and Systems"}
+@string{tcs="Theoretical Computer Science"}
+
+misc:
+
+@string{ieee="IEEE"}
+@string{acm="ACM"}
+@string{siam="Society for Industrial and Applied Mathematics"}
+@string{proc=        "Proceedings"}
+@string{pof=        "Proceedings of "}
+@string{pofthe=        "Proceedings of the "}
+@string{cr=        "Conference Record "}
+@string{crof=        "Conference Record of "}
+@string{crofthe="Conference Record of the "}
+@string{cpofthe="Conference Proceedings of the "}
+@string{lncs="Lecture Notes in Computer Science"}
+@string{ibmwatson="IBM Research Division, Thomas J. Watson Research Center, Yorktown
+Heights, NY"}
+@string{csd="Computer Science Department"}
+@string{dcs="Department of Computer Science"}
+@string{dcse=dcs # " and Engineering"}
+@string{eccc="Electronic Colloquium in Computation Complexity, 
+{\tt http://www.eccc.uni-trier.de/eccc/}"}
+@string{uw="University of Washington"}
+@string{uwcs=dcs # ", " # uw}
+@string{uwcse=dcse # ", " # uw}
+@string{tr="Technical Report"}
+@string{csdtr=csd # " " # tr}
+@string{dcstr=dcs # " " # tr}
+@string{dcsetr=dcse # " " # tr}
+
+publishers:
+
+@string{sv="Springer-Verlag"}
+@string{wiley="John Wiley \& Sons"}
+
+journals:
+
+@string{acmsurveys="ACM Computing Surveys"}
+@string{amsbull="Bulletin of the American Mathematical Society"}
+@string{anndiscmath="Annals of Discrete Mathematics"}
+@string{apal="Annals of Pure and Applied Logic"} 
+@string{bit="BIT"}
+@string{cgta="Computational Geometry: Theory and Applications"}
+@string{comb="Combinatorica"}
+@string{compcomp="Computational Complexity"}
+@string{computer="Computer"}
+@string{discamath="Discrete Applied Mathematics"}
+@string{doklady="Doklady Akademii Nauk SSSR, n.s."}
+@string{physdoklady="Soviet Physics Doklady"}
+@string{eatcs="Bulletin of the European Association for Theoretical Computer Science"}
+@string{ieeejssc="IEEE Journal of Solid-State Circuits"}
+@string{ieeetc ="IEEE Transactions on Computers"}
+@string{ieeetcs="IEEE Transactions on Circuits and Systems"}
+@string{ieeetit="IEEE Transactions on Information Theory"}
+@string{ieeetse="IEEE Transactions on Software Engineering"}
+@string{infcomp="Information and Computation"}
+@string{infcont="Information and Control"}
+@string{ja="Journal of Algorithms"}
+@string{jcrypt="Journal of Cryptology"}
+@string{jcd="Journal of Combinatorial Designs"}
+@string{jcomba="Journal of Combinatorial Theory (A)"}
+@string{jct="Journal of Combinatorial Theory"}
+@string{jcss="Journal of Computer and System Sciences"}
+@string{jpdc="Journal of Parallel and Distributed Computing"}
+@string{jsc="Journal of Symbolic Computation"}
+@string{jsl="Journal of Symbolic Logic"}
+@string{jtp="Journal of Theoretical Probability"}
+@string{lenmath="L'En\-seignement Math{\'e}matique"}
+@string{mathann="Mathematische Annalen"}
+@string{mathcomp="Mathematics of Computation"}
+@string{mst="Mathematical Systems Theory"}
+@string{ppl="Parallel Processing Letters"}
+@string{rsa="Random Structures and Algorithms"}
+@string{siamjadm="SIAM Journal on Algebraic and Discrete Methods"}
+@string{siamjam="SIAM Journal on Applied Mathematics"}
+@string{siamjdm="SIAM Journal on Discrete Mathematics"}
+@string{siamjc=sicomp}
+@string{spectrum="IEEE Spectrum"}
+@string{tams="Transactions of the American Mathematical Society"}
+@string{ZWVGAA="Zeitschrift f{\"u}r Wahrscheinlichkeitstheorie und Verwandte Gebiete"}
+@string{ZWVGAAabbrev="Z. Wahrsch. Verw. Gebiete"}
+
+conferences: (see also proceedings at end of file)
+
+  Allerton 15th (1977) thru 30th (1992) use following title; 1-14 were different.
+@string{allerton="Allerton Conference on Communication, Control and Computing"}
+@string{aallerton="Annual " # allerton}
+@string{allerton77=proc # ", Fifteenth "        # aallerton}
+@string{allerton79=proc # ", Seventeenth "        # aallerton}
+@string{allerton86=proc # ", Twenty-Fourth "        # aallerton}
+@string{allerton87=proc # ", Twenty-fifth "        # aallerton}
+@string{allerton89=proc # ", Twenty-Seventh "        # aallerton}
+@string{geom85=pofthe # "First Annual ACM Symposium on Computational Geometry"}
+@string{icpp="International Conference on Parallel Processing"}
+@string{icpp77=icpp}
+@string{icpp78=icpp}
+@string{icpp79=icpp}
+@string{icpp80=icpp}
+@string{icpp81=icpp}
+@string{icpp82=icpp}
+@string{icpp83=icpp}
+@string{icpp84=icpp}
+@string{icpp85=icpp}
+@string{icpp86=icpp}
+@string{icpp87=icpp}
+@string{icpp88=icpp}
+@string{icpp89=icpp}
+@string{icpp90=icpp}
+@string{icpp91=icpp}
+@string{ifip62="Proceedings of IFIP Congress 62"}
+@string{ifip74="Proceedings of IFIP Congress 74"}
+@string{ifip77="Information Processing 77, Proceedings of IFIP Congress 77"}
+@string{isca83=pofthe # "10th International Conference on Computer Architecture"}
+@string{isaac93=" 4th International Symposium on Algorithms and Computation"}
+@string{isca84=pofthe # "11th International Symposium on Computer Architecture"}
+@string{mitvlsi88="Proc. 5th M.I.T. Conference on Advanced Research in VLSI"}
+
+    titles, addresses checked, podc 86,88-90 - wlr 7/93
+@string{podc=" Annual ACM Symposium on Principles of Distributed Computing"}
+@string{podc86=pofthe # "Fifth"     # podc}
+@string{podc87=pofthe # "Sixth"   # podc}
+@string{podc88=pofthe # "Seventh"   # podc}
+@string{podc89=pofthe # "Eighth"    # podc}
+@string{podc90=pofthe # "Ninth"     # podc}
+@string{podc91=pofthe # "Tenth"   # podc}
+@string{podc92=pofthe # "Eleventh"  # podc}
+@string{podc93=pofthe # "Twelfth"   # podc}
+@string{podc94=pofthe # "Thirteenth"   # podc}
+@string{pods=" Annual ACM Symposium on Principles of Database Systems"}
+@string{pods84=pofthe # "Third"     # pods}
+@string{pods85=pofthe # "Fourth"    # pods}
+@string{pods87=pofthe # "Sixth"     # pods}
+@string{pods88=pofthe # "Seventh"   # pods}
+@string{pods92=pofthe # "Eleventh"  # pods}
+@string{popl=" ACM Symposium on Principles of Programming Languages"}
+@string{apopl=" Annual" # popl}
+@string{popl77=crof # "the Fourth"        # popl}
+@string{popl78=crof # "the Fifth"        # apopl}
+@string{popl83=crof # "the Tenth"         # apopl}
+@string{popl87=crof # "the Fourteenth"        # apopl}
+@string{ppopp=" Annual ACM SIGPLAN Symposium on Principles and Practices of Parallel
+Programming"}
+@string{ppopp90=pofthe # "Second"    # ppopp}
+@string{princeton74=pofthe # "8th Annual Princeton Conference on Information
+Sciences and Systems"}
+@string{sigmetrics89="ACM SIGMETRICS Conference on Measurement and Modeling of
+Computer Systems"}
+@string{sjcc68="Proceedings AFIPS SJCC 32"}
+@string{soda=" Annual {ACM-SIAM} Symposium on Discrete Algorithms"}
+@string{soda90=pofthe # "First"         # soda}
+@string{soda91=pofthe # "Second"        # soda}
+@string{soda92=pofthe # "Third"         # soda}
+@string{soda93=pofthe # "Fourth"        # soda}
+@string{soda96=pofthe # "Seventh" # soda}
+@string{soda98=pofthe # "Ninth" # soda}
+@string{soda00=pofthe # "Eleventh" # soda}
+@string{spaa=" ACM Symposium on Parallel Algorithms and Architectures"}
+@string{spaa89=pofthe # "1989" # spaa}
+@string{spaa90=pofthe # "1990" # spaa}
+@string{spaa91=pofthe # "1991" # spaa}
+@string{spaa92=pofthe # "1992" # spaa}
+@string{spaa93=pofthe # "1993" # spaa}
+@string{spaa94=pofthe # "1994" # spaa}
+@string{vldb78="Proceedings of ACM International Conference on Very Large Data Bases"}
+
+@string{wads=" Workshop on Algorithms and Data Structures"} 
+@string{wads95=pofthe # "4th" # wads}
+@string{wads97=pofthe # "5th" # wads}
+@string{pdp=" Symposium on Parallel and Distributed Processing"}
+@string{pdp90=pofthe # "Second IEEE" # pdp}
+@string{pdp91=pofthe # "Third IEEE" # pdp}
+
+    92-94 added a "the" in front of "theory".
+@string{stoc ="ACM Symposium on Theory of Computing"}
+@string{sttoc="ACM Symposium on the Theory of Computing"}
+@string{astoc =" Annual " # stoc}
+@string{asttoc=" Annual " # stoc}
+@string{stoc69=crof # stoc} 1st, May, Marina del Rey, CA
+@string{stoc70=crof   # "Second"        # astoc}
+@string{stoc71=crof   # "Third"         # astoc}
+@string{stoc72=cr     # "Fourth"        # astoc} month=may,address={Denver, CO}
+@string{stoc73=crof   # "Fifth"         # astoc}
+@string{stoc74=crof   # "Sixth"         # astoc}
+@string{stoc75=crof   # "Seventh"        # astoc}
+@string{stoc76=crofthe# "Eighth"        # astoc}
+@string{stoc77=crofthe# "Ninth"         # astoc}
+@string{stoc78=crofthe# "Tenth"         # astoc}
+@string{stoc79=crofthe# "Eleventh"        # astoc}
+@string{stoc80=cpofthe# "Twelfth"        # astoc}
+@string{stoc81=cpofthe# "Thirteenth"        # astoc}
+@string{stoc82=pofthe # "Fourteenth"        # astoc}
+@string{stoc83=pofthe # "Fifteenth"        # astoc}
+@string{stoc84=pofthe # "Sixteenth"         # astoc}
+@string{stoc85=pofthe # "Seventeenth"        # astoc}
+@string{stoc86=pofthe # "Eighteenth"         # astoc}
+@string{stoc87=pofthe # "Nineteenth"         # astoc}
+@string{stoc88=pofthe # "Twentieth"         # astoc}
+@string{stoc89=pofthe # "Twenty-First"        # astoc}
+@string{stoc90=pofthe # "Twenty-Second" # astoc}
+@string{stoc91=pofthe # "Twenty-Third"        # astoc}
+@string{stoc92=pofthe # "Twenty-Fourth" # asttoc}
+@string{stoc93=pofthe # "Twenty-Fifth"        # asttoc}
+@string{stoc94=pofthe # "Twenty-Sixth"  # asttoc}
+@string{stoc95=pofthe # "Twenty-Seventh"# asttoc}
+@string{stoc96=pofthe # "Twenty-Eighth" # asttoc}
+@string{stoc97=pofthe # "Twenty-Ninth"  # asttoc}
+@string{stoc98=pofthe # "Thirtieth"  # asttoc}
+@string{stoc99=pofthe # "Thirty-First"  # asttoc}
+@string{stoc00=pofthe # "Thirty-Second"  # asttoc}
+@string{stoc01=pofthe # "Thirty-Third"  # asttoc}
+    Titles checked, stoc69-94 - wlr 7/93,2/95>
+    title pages & covers of STOC 21-23 do not have hyphen in Twenty-nth;
+    24 & 25 do (but spine of 24th doesn't!).  For consistency, will
+    hyphenate all of them, following the rule in my Webster's.
+
+@string{structure="Proceedings, Structure in Complexity Theory, "}
+@string{annconf=" Annual Conference"}
+@string{structure87=structure # "Second" # annconf}
+@string{structure88=structure # "Third" # annconf}
+@string{structure89=structure # "Fourth" # annconf}
+@string{structure91=structure # "Sixth" # annconf}
+@string{structure92=structure # "Seventh" # annconf}
+@string{structure93=structure # "Eighth" # annconf}
+@string{structure95=structure # "Tenth" # annconf}
+@string{occc=" Annual IEEE Conference on Computational Complexity (formerly:
+Structure in Complexity Theory Conference)"}
+@string{complexity96=proc # "Eleventh" # occc}
+@string{complexity97=proc # "Twelfth" # occc}
+@string{complexity99=proc # "Fourteenth" # occc}
+@string{ccc=" Annual IEEE Conference on Computational Complexity"}
+@string{complexity00=proc # "Fifteenth" # ccc}
+@string{complexity01=proc # "Sixteenth" # ccc}
+
+    titles 16-33 checked - wlr 8/93
+@string{sctld=" Annual Symposium on Switching Circuit Theory and Logic Design"}
+@string{sctld65=pofthe # "Sixth" # sctld}
+@string{swat=" Annual Symposium on Switching and Automata Theory"}
+@string{swat70="11th" # swat}
+@string{swat72="13th" # swat}
+@string{swat73="14th" # swat}
+@string{swat74="15th" # swat}
+@string{focs=" Annual Symposium on Foundations of Computer Science"}
+@string{focs75="16th" # focs}
+@string{focs76="17th" # focs}
+@string{focs77="18th" # focs}
+@string{focs78="19th" # focs}
+@string{focs79="20th" # focs}
+@string{focs80="21st" # focs}
+@string{focs81="22nd" # focs}
+@string{focs82="23rd" # focs}
+@string{focs83="24th" # focs}
+@string{focs84="25th" # focs}
+@string{focs85="26th" # focs}
+@string{focs86="27th" # focs}
+@string{focs87="28th" # focs}
+@string{focs88="29th" # focs}
+@string{focs89="30th" # focs}
+@string{focs90=proc # " 31st" # focs} 31st is 2 volumes
+@string{focs91=proc # " 32nd" # focs}
+@string{focs92=proc # " 33rd" # focs}
+@string{focs93=proc # " 34th" # focs}
+@string{focs94=proc # " 35th" # focs}
+@string{focs95=proc # " 36th" # focs}
+@string{focs96=proc # " 37th" # focs}
+@string{focs97=proc # " 38th" # focs}
+@string{focs98=proc # " 39th" # focs}
+@string{focs99=proc # " 40th" # focs}
+@string{focs00=proc # " 41st" # focs}
+
+@string{lics=" Annual IEEE Symposium on Logic in Computer Science"}
+@string{lics93="8th" # lics}
+
+               ---BEGIN-SORT---BEGIN-SORT---BEGIN-SORT---
+
+    DON'T CHANGE PRECEEDING LINE.  Preceeding line is a sentinel to Ruzzo's
+    bib sorting hacks to prevent strings, comments, etc. above here from
+    being sorted.
+
+
+
+@inproceedings{bceip:search,
+  author={Beame, Paul W. and Cook, Stephen A. and Edmonds, Jeff and Impagliazzo,
+Russell and Pitassi, Toniann},
+  title={The Relative Complexity of {$NP$} Search Problems},
+  pages={303--314},
+  booktitle=stoc95,month=may,year=1995,address={Las Vegas, NV}}
+
+@article{bceip:search-journal,
+  author={Beame, Paul W. and Cook, Stephen A. and Edmonds, Jeff and Impagliazzo,
+  ussell and Pitassi, Toniann},
+  title={The Relative Complexity of {$NP$} Search Problems},
+  journal=jcss}
+  
+  @article{h:pspacec,
+  author    = {Philipp Hertel and
+               Toniann Pitassi},
+  title     = {The PSPACE-Completeness of Black-White Pebbling},
+  journal   = {SIAM J. Comput.},
+  volume    = {39},
+  number    = {6},
+  year      = {2010},
+  pages     = {2622-2682},
+  ee        = {http://dx.doi.org/10.1137/080713513},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}	
+
+@article{c:pebjournal,
+  author    = {Stephen A. Cook and
+               Pierre McKenzie and
+               Dustin Wehr and
+               Mark Braverman and
+               Rahul Santhanam},
+  title     = {Pebbles and Branching Programs for Tree Evaluation},
+  journal   = {ACM Trans. on Computing Theory (ToCT)},
+  volume    = {},
+  year      = {2012},
+  Note      = {Preliminary version available at
+           \verb+http://arxiv.org/abs/1005.2642+},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{v:frankthesis,
+  author    = {Frank Vanderzwet},
+  title     = {Fractional Pebbling Game Lower Bounds},
+  year      = {2011},
+  Note      = {MSc research paper, version available at
+           \verb+http://www.cs.toronto.edu/~fvan+}
+}
+
+@article{k:bwpyr,
+  author    = {Maria M. Klawe},
+  title     = {A Tight Bound for Black and White Pebbles on the Pyramid},
+  journal   = {J. ACM},
+  volume    = {32},
+  number    = {1},
+  year      = {1985},
+  pages     = {218-228},
+  ee        = {http://doi.acm.org/10.1145/2455.214115},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@article{cs:pfromnl,
+  author    = {Stephen A. Cook and
+               Ravi Sethi},
+  title     = {Storage Requirements for Deterministic Polynomial Time Recognizable
+               Languages},
+  journal   = {J. Comput. Syst. Sci.},
+  volume    = {13},
+  number    = {1},
+  year      = {1976},
+  pages     = {25-37},
+  ee        = {http://dx.doi.org/10.1016/S0022-0000(76)80048-7},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@incollection{ph:comsc,
+ author = {Paterson, Michael S. and Hewitt, Carl E.},
+ chapter = {Comparative schematology},
+ title = {Record of the Project MAC conference on concurrent systems and parallel computation},
+ editor = {Dennis, Jack B.},
+ year = {1970},
+ pages = {119--127},
+ numpages = {9},
+ url = {http://doi.acm.org/10.1145/1344551.1344563},
+ doi = {http://doi.acm.org/10.1145/1344551.1344563},
+ acmid = {1344563},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+} 
+
+@inproceedings{bs:wsstrade,
+ author = {Ben-Sasson, Eli},
+ title = {Size space tradeoffs for resolution},
+ booktitle = {Proceedings of the thiry-fourth annual ACM symposium on Theory of computing},
+ series = {STOC '02},
+ year = {2002},
+ isbn = {1-58113-495-9},
+ location = {Montreal, Quebec, Canada},
+ pages = {457--464},
+ numpages = {8},
+ url = {http://doi.acm.org/10.1145/509907.509975},
+ doi = {http://doi.acm.org/10.1145/509907.509975},
+ acmid = {509975},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+} 
+
+@INPROCEEDINGS{alek:sepres,
+    author = {Michael Alekhnovich and Jan Johannsen and Toniann Pitassi and Alasdair Urquhart},
+    title = {An exponential separation between regular and general resolution},
+    booktitle = {In Proceedings of the Thirty-Fourth Annual ACM Symposium on Theory of Computing},
+    year = {2002},
+    pages = {448--456},
+    publisher = {ACM Press}
+}
+
+@TECHREPORT{n:narrowpf,
+    author = {Jakob Nordstrom},
+    title = {Narrow proofs may be spacious: Separating space and width in resolution},
+    institution = {Revision 02, Electronic Colloquium on Computational Complexity (ECCC},
+    year = {2005}
+}
+
+
+@inproceedings{nord:survey1,
+  author    = {Jakob Nordstr{\"o}m},
+  title     = {On the Relative Strength of Pebbling and Resolution},
+  booktitle = {IEEE Conference on Computational Complexity},
+  year      = {2010},
+  pages     = {151-162},
+  ee        = {http://doi.ieeecomputersociety.org/10.1109/CCC.2010.22},
+  crossref  = {DBLP:conf/coco/2010},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@proceedings{DBLP:conf/coco/2010,
+  title     = {Proceedings of the 25th Annual IEEE Conference on Computational
+               Complexity, CCC 2010, Cambridge, Massachusetts, June 9-12,
+               2010},
+  booktitle = {IEEE Conference on Computational Complexity},
+  publisher = {IEEE Computer Society},
+  year      = {2010},
+  isbn      = {978-0-7695-4060-3},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+
+@inproceedings{ppgr:survey,
+  author    = {Nicholas Pippenger},
+  title     = {Advances in Pebbling (Preliminary Version)},
+  booktitle = {ICALP},
+  year      = {1982},
+  pages     = {407-417},
+  ee        = {http://dx.doi.org/10.1007/BFb0012787},
+  crossref  = {DBLP:conf/icalp/1982},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@proceedings{DBLP:conf/icalp/1982,
+  editor    = {Mogens Nielsen and
+               Erik Meineche Schmidt},
+  title     = {Automata, Languages and Programming, 9th Colloquium, Aarhus,
+               Denmark, July 12-16, 1982, Proceedings},
+  booktitle = {ICALP},
+  publisher = {Springer},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {140},
+  year      = {1982},
+  isbn      = {3-540-11576-5},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+
+@inproceedings{nord:survey2,
+  author    = {Jakob Nordstr{\"o}m},
+  title     = {New Wine into Old Wineskins: A Survey of Some 
+Pebbling Classics with Supplemental Results},
+  year      = {2010},
+}
+
+
+
+--- End of frank.bib ---
+
