@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.8.16)  16 AUG 2012 22:00
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.8.16)  20 JAN 2013 19:51
 entering extended mode
-**mt11.tex
-(C:\Users\Frank\Desktop\thesis\mt11.tex
+**C:/Users/Frank/Desktop/thesis/mt11.tex
+(C:/Users/Frank/Desktop/thesis/mt11.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -662,6 +662,11 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 108.
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 128--129
 
@@ -1426,13 +1431,13 @@ Package rerunfilecheck Info: File `mt11.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1673.
  ) 
 Here is how much of TeX's memory you used:
- 14885 strings out of 494045
- 261887 string characters out of 3145969
- 342437 words of memory out of 3000000
- 17754 multiletter control sequences out of 15000+200000
+ 14884 strings out of 494045
+ 261877 string characters out of 3145969
+ 343437 words of memory out of 3000000
+ 17753 multiletter control sequences out of 15000+200000
  26270 words of font info for 62 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 56i,9n,55p,796b,647s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,9n,55p,826b,647s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fi
@@ -1448,7 +1453,7 @@ onts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files (x86)/MiKTeX 2.
 ype1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/ti
 mes/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a
 .pfb>
-Output written on mt11.pdf (34 pages, 303420 bytes).
+Output written on mt11.pdf (34 pages, 303426 bytes).
 PDF statistics:
  490 PDF objects out of 1000 (max. 8388607)
  120 named destinations out of 1000 (max. 500000)

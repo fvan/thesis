@@ -117,11 +117,11 @@ Remove a black pebble from a node
 
 For the $black$ $pebbling$ $game$, lower and upper bounds for balanced trees are given in \\\cite{c:pebjournal}. Similar, motivational, lower and upper bounds are replicated in Section 3. 
 
-Each node can be thought of as having a value and a method of determining that value from the value of its children. Black pebbles can be thought of as values deterministically computed from previous values. This analogy is essentially the $tree$ $evaluation$ $problem$ \cite{c:pebjournal}.
+Each node can be thought of as having a value and a method of determining that value from the value of its children. Black pebbles can be thought of as values deterministically computed from previous values. This analogy is essentially the $tree$ $evaluation$ $problem$ \cite{c:pebjournal}.\\
 
 Branching programs are a nonuniform model of a Turing machines. Branching programs are directed multi-graphs whose nodes are states. Every edge is labelled with a value. There is one initial state from which the computation starts. Every state queries a variable and branches to new states along edges labelled with that value. These computations may eventually reach accepting or rejecting states.
 
-A state in a branching program corresponds to a turing machine configuration. Thus if we can show the branching programs solving a problem in P requires a superpolynomial number of states then L $\ne$ P. 
+A state in a branching program corresponds to a turing machine configuration. Thus  L $\ne$ P if we can show the branching programs solving a problem in P requires a superpolynomial number of states. 
 
 With this goal, \cite{c:pebjournal} examined a restricted class of branching programs. A thrifty branching program for the $tree$ $evaluation$ $problem$ must query the value of the functions only at the correct value of the children. The thrifty hypothesis states that thrifty branching programs are optimal among all branching programs.
 
@@ -159,13 +159,13 @@ Using the pebbling contradiction problem derived from the pebbling game, Nordstr
 
 
 
-Motivated by proving lower bounds for branching programs \cite{c:pebjournal} recently introduced the $fractional $ $pebbling$ $game$. The $fractional $ $pebbling$ $game$ is a generalization of the whole $black$-$white$ $pebbling$ $game$. 
+Motivated by proving lower bounds for branching programs \cite{c:pebjournal} recently introduced the $fractional$ $pebbling$ $game$. The $fractional $ $pebbling$ $game$ is a generalization of the whole $black$-$white$ $pebbling$ $game$. 
 
 The rules are similar to those presented in the whole $black$-$white$ $pebbling$ $game$ except we now allow for fraction of pebbles. 
 
 The $fractional $ $pebbling$ $game$ should better represent the non-deterministic approach to the problem than the whole $black$-$white$ $pebbling$ $game$. Fractions of pebbles can be thought of as partially specifying the possible values of a node. This intuitively is helpful and seems less restrictive than the whole $black$-$white$ $pebbling$ $game$. We confirm that this is helpful by showing smaller lower bounds for the $fractional $ $pebbling$ $game$ than are possible for the whole $black$-$white$ $pebbling$ $game$. These lower bounds match upper bounds presented in \cite{c:pebjournal} for the $fractional $ $pebbling$ $game$.
 
-The main theorem we show in this paper (Section 5.3) relies on the $fractional $ $pebbling$ $game$. Let  $T^h_d$ be the balanced d-ary tree of height h. Let $min_h = (d-1) * h/2+1$. Let the root node be the node that must be pebbled. \\
+The main theorem we show in this paper (Section 5.3) relies on the $fractional$ $pebbling$ $game$. Let  $T^h_d$ be the balanced $d$-ary tree of height $h$. Let $min_h = (d-1) * h/2+1$. Let the root node be the node that must be pebbled. \\
 
 \noindent
 {\bf Main Theorem}
@@ -311,27 +311,27 @@ Square brackets after the symbols defined above are used to indicate in which tr
 \begin{definition}
 \noindent
 A {\bf root-pebbling} is a pebbling that requires that the initial and final pebble weights of $\pi$ are 0, and 
-$rw_\pi$(t)=1 at some time $t$. 
+$rw_\pi(t)=1$ at some time $t$. 
 
 \noindent
 A {\bf sub-pebbling} is a pebbling that may start or end with pebble weight. It may initially have arbitrary white pebble weight and at the end of the pebbling it may have arbitrary black pebble weight. It may also have some specified initial black pebble weight. At the end of the pebbling it has no white pebble weight.
 
 \noindent
-A {\bf root sub-pebbling} is a sub-pebbling such that $rw_\pi$(t)=1 at some time $t$. 
+A {\bf root sub-pebbling} is a sub-pebbling such that $rw_\pi(t)=1$ at some time $t$. 
 
 \noindent
 Similarly, a {\bf sub-root sub-pebbling} is a sub-pebbling such that the subtrees of $T$ have $rw_\pi$(t)=1 at some time $t$.
 \end{definition}
 
 \begin{lemma}
-For any game with white pebble weight, if $\pi_1$ is a sub-pebbling such that it possibly has initial white and black pebble weight, and $w_{\pi_1}(t) \leq P$ for all times t then there exists a sub-pebbling $\pi_2$ with the same initial black pebble weights and no white pebble weight such that $w_{\pi_2}(t) \leq P$ for all times t.
+If $\pi_1$ is a sub-pebbling with initial white and black pebble weight, and $w_{\pi_1}(t) \leq P$ for all times $t$ then there exists a sub-pebbling $\pi_2$ with the same initial black pebble weight and no white pebble weight such that $w_{\pi_2}(t) \leq P$ for all times $t$.
 \end{lemma}
 
 \begin{proofL}
 We show such a $\pi_2$. The first steps is to place the same white pebble weight on the same nodes as initially in $\pi_1$. We then could follow the sub-pebbling $\pi_1$. Since we have less pebble weight before we add the white pebble weight, $w_{\pi_2}(t) \leq P$ for all times t.
 \end{proofL}\\
 
-This should indicate that initial white pebble weight is not helpful.\\
+This lemma indicates that initial white pebble weight is not helpful.\\
 
 In all pebbling games we allow for a {\bf black sliding} move. This is pebble move (ii) in all games. Rule (ii) is sometimes alternatively written as follows :
 
@@ -345,12 +345,12 @@ This would be the case if we did not allow for black sliding moves. This decoupl
 A pebbling with {\bf black sliding} moves can be converted to a pebbling without black sliding moves which requires at most 1 more pebble weight.
 \end{obs}
 
-\begin{proofL}
+
 This is simply the result of changing a black sliding move to two subsequent moves. We allow {\bf sliding} moves in our proofs.
-\end{proofL}
+
 
 \begin{definition}
-We let $T^h_d$ represent the balanced d-ary tree of height h.
+We let $T^h_d$ represent the balanced $d$-ary tree of height $h$.
 \end{definition}
 
 \newpage	
@@ -396,7 +396,7 @@ There are 2 children of the root. We place a black pebble weight on each leaf an
 %\noindent
 %{\bf Base Case :} h = 3.
 
-%There are d subtrees of the root. On the first subtree, place d pebbles on the leaves of the given subtree and slide a pebble to that subtrees root. We then remove black pebble weight that is not on the root. We do the same in each subtree until we reach the final subtree. In the final subtree we now use d pebble weight on the leaves of the subtree. At this time we have pebble weight d in this subtree while maintaining one pebble weight in each of the other (d-1) subtrees. Thus, $sw_\pi \leq d + (d - 1)$ at this time and all previous times.
+%There are $d$ subtrees of the root. On the first subtree, place $d$ pebbles on the leaves of the given subtree and slide a pebble to that subtrees root. We then remove black pebble weight that is not on the root. We do the same in each subtree until we reach the final subtree. In the final subtree we now use d pebble weight on the leaves of the subtree. At this time we have pebble weight d in this subtree while maintaining one pebble weight in each of the other ($d-1$) subtrees. Thus, $sw_\pi \leq d + (d - 1)$ at this time and all previous times.
 
 %We next slide a pebble to the root of this final subtree. We use the same pebble weight at this time as at the previous time since we have slid a pebble. We now have a pebble on each subtree root and slide a pebble to the root. Thus we pebble the root and $sw_\pi \leq d + (d - 1) = min_h$ at all times.
 
@@ -405,9 +405,9 @@ There are 2 children of the root. We place a black pebble weight on each leaf an
 \noindent
 {\bf Induction step :} We prove for $h+1$ assuming for $h'$,
 $3\le h' \le h$.\\
-Note $min_{h+1}$ = $min_h + 1$.\\
+Note $min_{h+1} = min_h + 1$.\\
 
-There are two subtrees of the root. Using $min_h$ pebble weight we pebble the first subtree root using the pebbling in the IH for height h. We then remove black pebble weight that is not on the root of the subtree such that we have only this 1 pebble weight. 
+There are two subtrees of the root. Using $min_h$ pebble weight we pebble the first subtree root using the pebbling in the IH for height $h$. We then remove black pebble weight that is not on the root of the subtree such that we have only this 1 pebble weight. 
 
 We next use $min_h$ pebble weight to pebble the second subtree root using the pebbling in the IH for height h. At this time we maintain one pebble weight in the first subtree. We thus use $sw_\pi \leq min_h + 1$.
 
@@ -415,7 +415,7 @@ We now have a pebble on each subtree root and slide a pebble to the root. Thus, 
 
 Thus, the IH is satisfied.\\
 
-To show this for d-ary balanced trees we would iteratively pebble the children of the root using the pebbling in the IH. Each time leaving a pebble. This would result in an upper bound of $(d-1) * (h-1) + 1$.
+To show this for $d$-ary balanced trees we would iteratively pebble the children of the root using the pebbling in the IH. Each time leaving a pebble. This would result in an upper bound of $(d-1) * (h-1) + 1$.
 
 The key insight is that we had to leave some pebble weight in one subtree while we proceeded with the pebbling in another subtree. This idea is important to all subsequent proofs.\\\\
 
@@ -472,7 +472,7 @@ Thus we maintain at least one pebble in the other subtree at $t_{last}$ and $w_\
 
 Thus, the IH is satisfied.\\
 
-To show this for d-ary balanced trees we would look at the last time we use $min_h$ in any tree and argue that we need 1 pebble in each other subtree at this time. 
+To show this for $d$-ary balanced trees we would look at the last time we use $min_h$ in any tree and argue that we need 1 pebble in each other subtree at this time. 
 
 This would result in an lower bound of $(d-1) * (h-1) + 1$. The proofs in this section result in a tight lower bound for the $black$ $pebbling$ $game$ on balanced binary trees. We will show a tight lower bound for the $fractional $ $pebbling$ $game$.
 
@@ -565,7 +565,7 @@ We let the children of the root be $p_2$ and $p_3$. We call the children of thes
 \end{figure}
 
 
-We simulate the pebbling in the IH for height h in the subtree rooted at $v_1$. We modify the pebbling to leave the pebble on the root. This requires at most $min_h+1$ pebble weight.
+We simulate the pebbling in the IH for height $h$ in the subtree rooted at $v_1$. We modify the pebbling to leave the pebble on the root. This requires at most $min_h+1$ pebble weight.
 
 We then simulate the pebbling in the subtree rooted at $v_2$. We interrupt the pebbling when $v_2$ is pebbled. We use $sw_\pi \leq min_h + 1$ at all times before this point.
 
@@ -573,7 +573,7 @@ We remove all other black pebble weight in $v_2$ such that we have $min_h - 2$ w
 
 We then slide a pebble to $p_2$. We then place a white pebble on $p_3$. We may then slide a pebble to the root. At this point we have 1 pebble on the root, 1 pebble on $p_3$ and $min_h - 2$ in the subtree rooted at $v_2$. By sliding the pebble to the root we satisfy condition (1). 
 
-We then remove all black pebble weight and have white pebble weight $min_h - 1$. We have yet to exceed $min_{h+2}$. We only have white pebble weight present at $\troot$ thus removing it will show (3).\\
+We then remove all black pebble weight and have white pebble weight $min_h - 1$, satisfying (2). We have yet to exceed $min_{h+2}$. We only have white pebble weight present at $\troot$ thus removing it will show (3).\\
 
 We remove the $min_h - 2$ white pebble weight in the subtree rooted at $v_2$. This takes $min_h$ by condition (3) of the IH. The only other pebble weight is on $p_3$. Thus condition (3) has yet to be violated and we still have not exceeded $min_{h+2}$.
 
@@ -581,9 +581,9 @@ We simulate the pebbling in the subtree rooted at $v_3$ and interrupt it when th
 
 We remove the pebble on $p_3$ and the black pebble on $v_3$. We then remove the white pebble weight in the subtree rooted at $v_3$ using (3) from the IH.
 
-To remove the white pebble on $v_4$ we simulate the pebbling for h but remove the white pebble instead of placing a black pebble. We remove the resulting white pebble weight and the pebbling is complete. At no point in removing the white pebble weight that was present at $\troot$ have we used more that $min_h+1$, thus condition (3) and the IH are satisfied.\\\\
+To remove the white pebble on $v_4$ we simulate the pebbling for $h$ but remove the white pebble instead of placing a black pebble. We remove the resulting white pebble weight and the pebbling is complete. At no point in removing the white pebble weight that was present at $\troot$ have we used more that $min_h+1$, thus condition (3) and the IH are satisfied.\\\\
 
-This shows the power of white pebbles and should be viewed as motivational. We next show that the upper bound for fractional pebbling can be obtained using only half pebbles. However, in Section 5 we show that fractional pebbles allow for a multitude of pebbling strategies, thus underlying the problems that arise when dealing with fractional pebbles. \\\\
+This shows the power of white pebbles. We next show that the upper bound for fractional pebbling can be obtained using only half pebbles. However, in Section 5 we show that fractional pebbles allow for a multitude of pebbling strategies. \\\\
 
 
 
@@ -606,7 +606,7 @@ We show this by induction : \\
 \noindent
 {\bf Base Case :} h = 2
 
-We must show that for h=2, if $\pi$ is a $whole$ $black$-$white$ $pebbling$ $game$ {\bf root-pebbling} of $T_2^2$, then there is a time t such that $sw_\pi(t) \geq 2$. This is trivially true.\\
+We must show that for $h=2$, if $\pi$ is a $whole$ $black$-$white$ $pebbling$ $game$ {\bf root-pebbling} of $T_2^2$, then there is a time t such that $sw_\pi(t) \geq 2$. This is trivially true.\\
 
 \noindent
 {\bf Base Case :} h = 3
@@ -636,7 +636,7 @@ By the same logic we must pebble $v_1$, $v_2$, $v_3$ and $v_4$ (Figure 1). Thus,
 
 If two or more of these times occur before $\troots$ then at the last time there must be no pebble weight elsewhere in the tree. Thus we must again use $min_h$ in the subtrees that are not the last subtree.  Thus we will need to use $min_h$ in at least three subtrees after $\troots$ (subtrees rooted at $v_1$, $v_2$, $v_3$ or $v_4$).
 
-When we use $min_h$ in the first such subtree after $\troots$ there can be no pebbles elsewhere. This would indicate we no longer need to reach such a time in any other subtrees. Contradiction, we showed we need to use $min_h$ in at least three subtrees after $\troots$. Thus at some some time t, $sw_\pi(t) > min_{h}$ as desired.\\
+When we use $min_h$ in the first such subtree after $\troots$ there can be no pebbles elsewhere. This would indicate we no longer need to reach such a time in any other subtrees. This is a contradiction since we need to use $min_h$ in at least three subtrees after $\troots$. Thus at some some time t, $sw_\pi(t) > min_{h}$ and $sw_\pi(t) \geq min_{h+2}$ as desired.\\
  \end{proof} 
  
  The previous proof is much simpler than the proof of the main theorem we will show later. This is due to the limited number of strategies possible when using whole pebbles.
@@ -673,7 +673,7 @@ To show this we use induction.\\
 {\bf Induction Hypothesis [IH$(h)$]:} 
 
 \noindent
-Let $min_h = h/2 + 1$.  Let $\troot$ be a time such that $rw_\pi$($\troot$)=1.\\
+Let $min_h = h/2 + 1$.  Let $\troot$ be a time such that $rw_\pi(\troot)=1$.\\
 For $h\geq 2$
 there exist a $half$ $pebbling$ $game$ {\bf root-pebbling} $\pi$ of $T_2^h$ such that $sw_\pi \leq min_h$ at all times. Additionally,
 
@@ -694,9 +694,9 @@ $2\le h' \le h$. Let $P_2$ and $P_3$ be the principal subtrees. Note $min_{h+1} 
 
 
 
-We simulate the pebbling in the IH for height h in $P_2$. We modify the pebbling to leave half a black pebble on the root. This requires at most half a pebble more or $min_h+1$ pebble weight.
+We simulate the pebbling in the IH for height $h$ in $P_2$. We modify the pebbling to leave half a black pebble on the root. This requires at most half a pebble more or $min_{h+1}$ pebble weight.
 
-We then simulate the pebbling in the IH for height h in $P_3$. We interrupt the pebbling when the root of $P_3$ is pebbled. We use $sw_\pi \leq min_{h+1}$ at all times before this point.
+We then simulate the pebbling in the IH for height $h$ in $P_3$. We interrupt the pebbling when the root of $P_3$ is pebbled. We use $sw_\pi \leq min_{h+1}$ at all times before this point.
 
 We remove all other black pebble weight in $P_3$ such that we have $min_h - 2$ white pebble weight in the subtree $P_3$ by condition (2) and an additional pebble on the root of $P_3$.
 
@@ -706,7 +706,7 @@ We next add half a white pebble to the root of $P_2$ and slide a pebble from the
 
 We remove the $min_h - 2$ white pebble weight in $P_3$. This takes $min_h$ pebble weight by condition (3) of the IH. The only other pebble weight is the half pebble on the root of $P_2$.
 
-We simulate the pebbling from the IH for height h in $P_2$. Instead of placing a black pebble we remove the white pebble on the root. This takes $min_h$ while maintaining the half a white pebble on the root of $P_2$. Thus condition (3) and the IH are not violated.
+We simulate the pebbling from the IH for height $h$ in $P_2$. Instead of placing a black pebble we remove the white pebble on the root. This takes $min_h$ while maintaining the half a white pebble on the root of $P_2$. Thus condition (3) is not violated.
 
 Thus the IH is satisfied.\\
 
@@ -737,7 +737,7 @@ To show this we use induction.\\
 
 
 \noindent
-Let $min_h = (d-1) * h/2+1$. Let $\troots$ be a time such that $rw_\pi$($\troots$)=1 for all principal subtrees. \\
+Let $min_h = (d-1) * h/2+1$. Let $\troots$ be a time such that $rw_\pi(\troots)=1$ for all principal subtrees. \\
 For $h\geq 3$, $\epsilon \in [-0.5,0.5]$, there exists a $fractional$ $pebbling$ $game$ {\bf sub-root pebbling} $\pi$ of $T_d^h$ such that the following conditions are true. 
 
 (0) there exists a time $\troots$ such that $rw_\pi(\troots)=1$ for all subtrees
@@ -803,7 +803,7 @@ In this case $min_h$ = $min_3$ = $3/2*(d-1) + 1$.
 
 Let the nodes $v_i$ be the children of the root, $i \in [d]$. Let $v_{last}$ be the last node enumerated in this way.\\
 
-For the first (d-1) $v_i$, place $(d-1)/2-\epsilon$ black pebble weight. This value is the amount in excess of d, the amount needed to pebble the leaves of one subtree. Do this by placing d pebble weight on the leaves and sliding the largest possible portion of this amount to the subtree root (at most 1 per subtree root). Next, remove black pebble weight not on the subtree roots. Repeat starting with the first subtree until we place $(d-1)/2-\epsilon$ black pebble weight.
+For the first (d-1) $v_i$, place $(d-1)/2-\epsilon$ black pebble weight between them. This value is the amount in excess of d, the amount needed to pebble the leaves of the final subtree. Do this by placing d pebble weight on the leaves and sliding the largest possible portion of this amount to the subtree root (at most 1 per subtree root). Next, remove black pebble weight not on the subtree roots. Repeat starting with the first subtree until we place $(d-1)/2-\epsilon$ black pebble weight.
 
 There are enough children of the root which are not $v_{last}$ to leave this amount since $(d-1)/2-\epsilon \leq (d-1)/2+(d-1)/2 = (d-1)$. 
 
@@ -880,7 +880,7 @@ that $w_\pi(t) \ge min_h$.\\
 \noindent
 The proof is simple for $h=2$. The proof for $h\geq3$ is by induction on $h$.\\
 
-When Combined with the previous section we have a tight bound on the number of pebbles taken to complete the $fractional $ $pebbling$ $game$ for balanced d-ary trees. The result is new. Similar, but loose, lower bounds can be found in \cite{c:pebjournal}. In \cite{c:pebjournal}, they are the result of a reduction to a similar problem \cite{k:bwpyr}, we take a more direct approach.
+When Combined with the previous section we have a tight bound on the number of pebbles taken to complete the $fractional $ $pebbling$ $game$ for balanced $d$-ary trees. The result is new. Similar, but loose, lower bounds can be found in \cite{c:pebjournal}. In \cite{c:pebjournal}, they are the result of a reduction to a similar problem \cite{k:bwpyr}, we take a more direct approach.
 
 The theorem is shown using the following induction hypothesis.\\
 
